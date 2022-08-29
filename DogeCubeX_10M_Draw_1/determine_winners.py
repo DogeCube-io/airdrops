@@ -5,7 +5,8 @@ import pandas as pd
 
 winners_file = 'results/winners.csv'
 last_trade_time = 1661763115788
-prizes = ([250_000] * 5) + ([100_000] * 15) + ([50_000] * 45)
+prizes = ([250_000] * 7) + ([125_000] * 26) + ([75_000] * 67)
+print("Total prizes: " + str(np.sum(prizes)))
 
 random.seed(last_trade_time)
 if os.path.exists(winners_file):
@@ -34,6 +35,8 @@ unique_winners = len(winners_df['User'].unique())
 
 print("Unique Winners: " + str(unique_winners))
 assert unique_winners == len(prizes)
+
+
 
 winners_df.to_csv(winners_file, index=False)
 
